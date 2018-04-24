@@ -4,6 +4,14 @@ public class Main
 	{
 		int y=1000;
 		int x=1000;
-		GameArena board = new GameArena(x, y);
+		boolean init = true;
+		GameArena board = new GameArena(x, y, init);
+		Button button1 = new Button(100, 100, 100, 100, "WHITE",1);
+		board.addRectangle(button1);
+		
+		while (true)
+		{
+					board.update();	
+		}
 	}
 }
