@@ -10,8 +10,10 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		int y=1000;
+		int y=300;
 		int x=800;
+		int by=50;
+		int bx=50;
 		JFrame mainFrame = new JFrame("Main Menu");
 		mainFrame.setVisible(true);
 		mainFrame.setSize(x,y);
@@ -27,13 +29,24 @@ public class Main
 		board.addRectangle(buttons[x]);
 		board.addText(buttonlabels[x]);
 		*/
-		JPanel mainPanel = new JPanel();
+		JPanel mainPanel = new JPanel(new BorderLayout());
 		mainFrame.add(mainPanel);
 		JButton testButton = new JButton();
+		testButton.setOpaque(true);
+		JLabel Title = new JLabel("MEME");
+		Title.setOpaque(true);
+		Title.setForeground(Color.GREEN);
+		testButton.setBackground(Color.WHITE);
+		
 		mainPanel.setOpaque(true);
 		mainPanel.setBackground(Color.BLACK);
 		
-	
+		mainPanel.add(testButton, BorderLayout.PAGE_START);
+		
+		mainPanel.add(Title,BorderLayout.PAGE_END);
+		
+		BrickBreak BB = new BrickBreak();
+		BB.initialise();
 	
 		while (true)
 		{
