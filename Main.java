@@ -5,19 +5,23 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-public class Main
+public class Main extends JFrame implements ActionListener
 {
-	public static void main(String[] args)
+	JFrame mainFrame;
+	JButton testButton;
+	
+		public static void main(String[] args)
 	{
+		Main m = new Main();
+		m.run();
+	
+	}
+	
+	
+	public void run()
+	{
+		stuffMaker();
 		
-		int y=300;
-		int x=800;
-		int by=50;
-		int bx=50;
-		JFrame mainFrame = new JFrame("Main Menu");
-		mainFrame.setVisible(true);
-		mainFrame.setSize(x,y);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/*GameArena board = new GameArena(x, y, init);
 		Button[] buttons = new Button[7];
@@ -29,28 +33,85 @@ public class Main
 		board.addRectangle(buttons[x]);
 		board.addText(buttonlabels[x]);
 		*/
-		JPanel mainPanel = new JPanel(new BorderLayout());
-		mainFrame.add(mainPanel);
-		JButton testButton = new JButton();
-		testButton.setOpaque(true);
-		JLabel Title = new JLabel("MEME");
-		Title.setOpaque(true);
-		Title.setForeground(Color.GREEN);
-		testButton.setBackground(Color.WHITE);
 		
+		
+		
+		
+		
+		
+	
+		//while (true)
+		//{
+				//	board.update();	
+		//}
+		
+	}
+	
+	public void stuffMaker()
+	{
+		int y=300;
+		int x=800;
+		int by=50;
+		int bx=50;
+		JFrame mainFrame = new JFrame("Main Menu");
+		
+		mainFrame.setSize(x,y);
+		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		
+		
+		JPanel mainPanel = new JPanel(new BorderLayout());
 		mainPanel.setOpaque(true);
 		mainPanel.setBackground(Color.BLACK);
 		
-		mainPanel.add(testButton, BorderLayout.PAGE_START);
 		
-		mainPanel.add(Title,BorderLayout.PAGE_END);
+		testButton = new JButton();
+		testButton.setOpaque(true);
+		testButton.setBackground(Color.BLACK);
+		testButton.setText("LEVEL 1");
+		testButton.setForeground(Color.GREEN);
+		testButton.addActionListener(this);
 		
-		BrickBreak BB = new BrickBreak();
-		BB.initialise();
+		
+		JLabel Title = new JLabel("BLOCK BREAKER", SwingConstants.CENTER);
+		//Title.setOpaque(true);
+		Title.setForeground(Color.GREEN);
+		Title.setFont(new Font("Consolas", Font.PLAIN,30));
+		
+		
+		
+		mainFrame.add(mainPanel);
+		
+		mainPanel.add(testButton, BorderLayout.CENTER);
+		
+		mainPanel.add(Title,BorderLayout.NORTH);
 	
-		while (true)
-		{
-				//	board.update();	
-		}
+		mainFrame.setVisible(true);
+		
 	}
+	
+	 public void close()
+	 {
+ 
+		mainFrame.dispose();
+ 
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+			if(e.getSource()==testButton)
+			{
+				BrickBreak BB = new BrickBreak();
+				
+				System.out.println("test");
+				BB.initialise();
+				//close();
+				//mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
+				
+			}
+	}
+	
+
+	
+	
 }
