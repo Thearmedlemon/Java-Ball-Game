@@ -37,13 +37,13 @@ public class BrickBreak
 
 		arrowHeadX=pointer.getEndX();
 		arrowHeadY=pointer.getEndY();
-		pointer.setEnd(arrowHeadX-1, arrowHeadY-1);
+
 		//moving the two lines that make up the point ^^
 
 
 		board.update();
 
-			
+
 
 		}
 	}

@@ -59,10 +59,12 @@ public class Menu extends JFrame implements ActionListener
 	{
 			if(e.getSource()==testButton)
 			{
-				BrickBreak BB = new BrickBreak();
+        Main.levelLauncher();
 
-				System.out.println("test");
-				BB.initialise();
+				//BrickBreak BB = new BrickBreak();
+
+				//System.out.println("test");
+				//BB.initialise();
 				//close();
 				//mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
 

@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-public class Main 
+public class Main
 {
 	JFrame mainFrame;
 	JButton testButton;
@@ -23,6 +23,17 @@ public class Main
 		Menu meme = new Menu();
 		meme.stuffMaker();
 	//	stuffMaker();
+
+	}
+
+	public static void levelLauncher()
+	{
+		BrickBreak BB = new BrickBreak();
+
+		System.out.println("test");
+		BB.initialise();
+
+
 
 	}
 
