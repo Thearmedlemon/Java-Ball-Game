@@ -1,21 +1,26 @@
-import java.util.*;
-import java.util.Collections;
-import java.util.concurrent.locks.*;
-import javafx.scene.input.KeyEvent;
+package com.lemon;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javafx.application.Platform;
+import com.lemon.providedstuff.Ball;
+import com.lemon.providedstuff.Line;
+import com.lemon.providedstuff.Rectangle;
+import com.lemon.providedstuff.Text;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.event.*;
-import javafx.scene.*;
-import javafx.scene.paint.*;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 
+import javax.swing.*;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * This class provides a simple window in which grahical objects can be drawn.
@@ -550,8 +555,10 @@ public class GameArena
 
         while(!this.rendered)
         {
-            try { Thread.sleep(0); }
-            catch (Exception e) {};
+            try {
+                Thread.sleep(0);
+            } catch (Exception e) {
+            }
         }
 
         renderLock.lock();

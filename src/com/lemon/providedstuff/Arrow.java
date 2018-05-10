@@ -1,3 +1,7 @@
+package com.lemon.providedstuff;
+
+import com.lemon.GameArena;
+
 /**
  * Models a simple arrow.
  * This class represents a Arrow object. When combined with the GameArena class,
@@ -20,11 +24,38 @@ public class Arrow
     private String colour;            // The colour of this Arrow
 
     /**
+     * Constructor. Create a new instance of a Arrow.
+     *
+     * @param startX The X co-ordinate in the GameArena where this Arrow will start.
+     * @param startY The Y co-ordinate in the GameArena where this Arrow will start.
+     * @param endX   The X co-ordinate in the GameArena where this Arrow will end.
+     * @param endY   The Y co-ordinate in the GameArena where this Arrow will end.
+     * @param w      The thickness of this arrow, in pixels
+     * @param col    The colour of the Arrow. @see setColour for a description of permissable colours.
+     */
+    public Arrow(double startX, double startY, double endX, double endY, double w, String col, GameArena arena) {
+        xStart = startX;
+        yStart = startY;
+        xEnd = endX;
+        yEnd = endY;
+        width = w;
+        colour = col;
+        arrowHeadLength = 20.0;
+
+        // Create three line instances - initially equal, but then update two to form the head of the arrow.
+        for (int i = 0; i < line.length; i++) {
+            line[i] = new Line(xStart, yStart, xEnd, yEnd, width, colour);
+            arena.addLine(line[i]);
+        }
+
+        setArrowHeadPosition(100.0);
+    }
+
+    /**
      * Obtains the X coordinte of the start of this arrow.
      * @return the X coordinte of the start of this arrow within the GameArena.
      */
-    public double getStartX()
-    {
+    public double getStartX() {
         return xStart;
     }
 
@@ -32,8 +63,7 @@ public class Arrow
      * Obtains the X coordinte of the end of this arrow.
      * @return the X coordinte of the end of this arrow within the GameArena.
      */
-    public double getEndX()
-    {
+    public double getEndX() {
         return xEnd;
     }
 
@@ -41,8 +71,7 @@ public class Arrow
      * Obtains the Y coordinte of the start of this arrow.
      * @return the Y coordinte of the start of this arrow within the GameArena.
      */
-    public double getStartY()
-    {
+    public double getStartY() {
         return yStart;
     }
 
@@ -50,19 +79,16 @@ public class Arrow
      * Obtains the Y coordinte of the end of this arrow.
      * @return the Y coordinte of the end of this arrow within the GameArena.
      */
-    public double getEndY()
-    {
+    public double getEndY() {
         return yEnd;
     }
-
 
     /**
      * Moves the current start position of this Arrow to the given co-ordinates
      * @param x the new x co-ordinate of the start of this Arrow
      * @param y the new y co-ordinate of the start of this Arrow
      */
-    public void setStart(double x, double y)
-    {
+    public void setStart(double x, double y) {
         this.xStart = x;
         this.yStart = y;
 
@@ -74,8 +100,7 @@ public class Arrow
      * @param x the new x co-ordinate of the end of this Arrow
      * @param y the new y co-ordinate of the end of this Arrow
      */
-    public void setEnd(double x, double y)
-    {
+    public void setEnd(double x, double y) {
         this.xEnd = x;
         this.yEnd = y;
 
@@ -86,8 +111,7 @@ public class Arrow
      * Obtains the width of this Arrow.
      * @return the width of this Arrow,in pixels.
      */
-    public double getWidth()
-    {
+    public double getWidth() {
         return width;
     }
 
@@ -95,11 +119,10 @@ public class Arrow
      * Changes the width of this Arrow to the given value
      * @param w the new width of this arrow, in pixels.
      */
-    public void setWidth(double w)
-    {
+    public void setWidth(double w) {
         width = w;
 
-        for (int i=0; i<line.length; i++)
+        for (int i = 0; i<line.length; i++)
             line[i].setWidth(width);
     }
 
@@ -107,8 +130,7 @@ public class Arrow
      * Obtains the colour of this Arrow.
      * @return a textual description of the colour of this Arrow.
      */
-    public String getColour()
-    {
+    public String getColour() {
         return colour;
     }
 
@@ -135,44 +157,11 @@ public class Arrow
      * SEAGREEN SEASHELL SIENNA SILVER SKYBLUE SLATEBLUE SLATEGRAY SLATEGREY SNOW SPRINGGREEN STEELBLUE TAN TEAL THISTLE TOMATO TURQUOISE VIOLET WHEAT WHITE
      * WHITESMOKE YELLOW YELLOWGREEN.
      */
-    public void setColour(String c)
-    {
+    public void setColour(String c) {
         colour = c;
 
-        for (int i=0; i<line.length; i++)
+        for (int i = 0; i<line.length; i++)
             line[i].setColour(colour);
-    }
-
-    /**
-     *
-     * Constructor. Create a new instance of a Arrow.
-     *
-     * @param startx The X co-ordinate in the GameArena where this Arrow will start.
-     * @param starty The Y co-ordinate in the GameArena where this Arrow will start.
-     * @param endx The X co-ordinate in the GameArena where this Arrow will end.
-     * @param endy The Y co-ordinate in the GameArena where this Arrow will end.
-     * @param w The thickness of this arrow, in pixels
-     * @param col. The colour of the Arrow. @see setColour for a description of permissable colours.
-     *
-     */
-    public Arrow(double startX, double startY, double endX, double endY, double w, String col, GameArena arena)
-    {
-        xStart = startX;
-        yStart = startY;
-        xEnd = endX;
-        yEnd = endY;
-        width = w;
-        colour = col;
-        arrowHeadLength = 20.0;
-
-        // Create three line instances - initially equal, but then update two to form the head of the arrow.
-        for (int i=0; i<line.length; i++)
-        {
-            line[i] = new Line(xStart, yStart, xEnd, yEnd, width, colour);
-            arena.addLine(line[i]);
-        }
-
-        setArrowHeadPosition(100.0);
     }
 
     /**
@@ -180,8 +169,7 @@ public class Arrow
      *
      * @param position The proportional distance along the line to draw the arrow head, expressed as a percentage
      */
-    void setArrowHeadPosition(double position)
-    {
+    void setArrowHeadPosition(double position) {
         arrowHeadPosition = position;
 
         // First, calculate the position along the line where the tip of the arrowhead will be drawn.

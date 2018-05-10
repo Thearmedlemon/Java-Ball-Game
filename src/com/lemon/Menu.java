@@ -1,18 +1,16 @@
+package com.lemon;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.Random;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 public class Menu extends JFrame implements ActionListener
 {
 
-  JFrame mainFrame;
-  JButton testButton;
+	private JFrame mainFrame;
+	private JButton testButton;
 
-  public void stuffMaker()
-	{
+	public void stuffMaker() {
 		int y=300;
 		int x=800;
 		int by=50;
@@ -21,7 +19,6 @@ public class Menu extends JFrame implements ActionListener
 
 		mainFrame.setSize(x,y);
 		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
 
 
 		JPanel mainPanel = new JPanel(new BorderLayout());
@@ -38,10 +35,9 @@ public class Menu extends JFrame implements ActionListener
 
 
 		JLabel Title = new JLabel("BLOCK BREAKER", SwingConstants.CENTER);
-		//Title.setOpaque(true);
+
 		Title.setForeground(Color.GREEN);
 		Title.setFont(new Font("Consolas", Font.PLAIN,30));
-
 
 
 		mainFrame.add(mainPanel);
@@ -55,19 +51,11 @@ public class Menu extends JFrame implements ActionListener
 	}
 
 
-  public void actionPerformed(ActionEvent e)
-	{
-			if(e.getSource()==testButton)
-			{
-        Main.levelLauncher();
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == testButton) {
+			Main.levelLauncher();
 
-				//BrickBreak BB = new BrickBreak();
 
-				//System.out.println("test");
-				//BB.initialise();
-				//close();
-				//mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
-
-			}
+		}
 	}
 }
