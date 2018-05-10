@@ -1,19 +1,19 @@
 /**
- * Models a simple arrow. 
+ * Models a simple arrow.
  * This class represents a Arrow object. When combined with the GameArena class,
  * instances of the Arrow class can be displayed on the screen.
  */
-public class Arrow 
+public class Arrow
 {
     // The following instance variables define the information needed to represent a Arrow
-    // Feel free to more instance variables if you think it will support your work... 
-   
+    // Feel free to more instance variables if you think it will support your work...
+
     private Line[] line = new Line[3];
 
     private double xStart;            // The X coordinate of the start of this Arrow
-    private double xEnd;              // The X coordinate of the end of this Arrow 
+    private double xEnd;              // The X coordinate of the end of this Arrow
     private double yStart;            // The X coordinate of the start of this Arrow
-    private double yEnd;              // The X coordinate of the end of this Arrow 
+    private double yEnd;              // The X coordinate of the end of this Arrow
     private double width;             // The colour of this Arrow
     private double arrowHeadLength;   // The length of the arrowheads, as a proportion of the line length (percentage)
     private double arrowHeadPosition; // The position of the arrowheads, as a proportion of the line length (percentage)
@@ -114,10 +114,10 @@ public class Arrow
 
     /**
      * Changes the colour of this Arrow to the given value.
-     * 
-     * @param c The new colour of this Arrow. 
+     *
+     * @param c The new colour of this Arrow.
      * <BR><BR>
-     * Permissable values are 8 bit hexadecimal RGB values in the format #RRGGBB. e.g.  
+     * Permissable values are 8 bit hexadecimal RGB values in the format #RRGGBB. e.g.
      * Pure red is "#FF0000"   <BR>
      * Pure green is "#00FF00" <BR>
      * Pure blue is "#0000FF"  <BR>
@@ -173,7 +173,7 @@ public class Arrow
         }
 
         setArrowHeadPosition(100.0);
-    }    
+    }
 
     /**
      * Moves the arrow head at the end of this Arrow to the specified position
@@ -188,7 +188,7 @@ public class Arrow
         double xe = xStart + ((xEnd - xStart) * position) / 100.0;
         double ye = yStart + ((yEnd - yStart) * position) / 100.0;
 
-        // Now, calculate the position of the "tails" of the arrowhead 
+        // Now, calculate the position of the "tails" of the arrowhead
         double dx = xStart - xe;
         double dy = yStart - ye;
 
@@ -200,11 +200,11 @@ public class Arrow
         double ax2 = xe + dx * Math.cos(-theta) - dy * Math.sin(-theta);
         double ay2 = ye + dy * Math.cos(-theta) + dx * Math.sin(-theta);
 
-        ax1 = xe - (xe - ax1) * (arrowHeadLength / 100.0); 
-        ax2 = xe - (xe - ax2) * (arrowHeadLength / 100.0); 
+        ax1 = xe - (xe - ax1) * (arrowHeadLength / 100.0);
+        ax2 = xe - (xe - ax2) * (arrowHeadLength / 100.0);
 
-        ay1 = ye - (ye - ay1) * (arrowHeadLength / 100.0); 
-        ay2 = ye - (ye - ay2) * (arrowHeadLength / 100.0); 
+        ay1 = ye - (ye - ay1) * (arrowHeadLength / 100.0);
+        ay2 = ye - (ye - ay2) * (arrowHeadLength / 100.0);
 
         line[1].setStart(ax1, ay1);
         line[1].setEnd(xe, ye);

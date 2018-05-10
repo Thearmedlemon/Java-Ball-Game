@@ -5,28 +5,13 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-public class Main 
+public class Menu extends JFrame implements ActionListener
 {
-	JFrame mainFrame;
-	JButton testButton;
 
-		public static void main(String[] args)
-	{
-		Main m = new Main();
-		m.run();
+  JFrame mainFrame;
+  JButton testButton;
 
-	}
-
-
-	public void run()
-	{
-		Menu meme = new Menu();
-		meme.stuffMaker();
-	//	stuffMaker();
-
-	}
-
-	/*public void stuffMaker()
+  public void stuffMaker()
 	{
 		int y=300;
 		int x=800;
@@ -69,14 +54,8 @@ public class Main
 
 	}
 
-	 public void close()
-	 {
 
-		mainFrame.dispose();
-
-	}
-
-	public void actionPerformed(ActionEvent e)
+  public void actionPerformed(ActionEvent e)
 	{
 			if(e.getSource()==testButton)
 			{
@@ -86,9 +65,7 @@ public class Main
 				BB.initialise();
 				//close();
 				//mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
-*/
 
-
-
-
+			}
+	}
 }
